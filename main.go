@@ -42,11 +42,9 @@ func main() {
 }
 
 func proccessResults(results chan workerpool.Result) {
-	go func() {
-		for result := range results {
-			fmt.Println(result.Info())
-		}
-	}()
+	for result := range results {
+		fmt.Println(result.Info())
+	}
 }
 
 func generateJobs(wp *workerpool.Pool) {
